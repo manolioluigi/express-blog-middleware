@@ -12,6 +12,11 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+//home
+function home(req, res) {
+    res.send('<h1>Ciao, benvenuto nel blog</h1><a href="/posts">Vai ai post</a>')
+}
+
 //index
 function index(req, res) {
     const postList = posts.map(post => `
@@ -135,6 +140,7 @@ function generateSlug(title) {
 }
 
 module.exports = {
+    home,
     index,
     show,
     create,
